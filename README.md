@@ -7,6 +7,9 @@ The goal of this research is to develop an ontology-based method to comparativel
 #Language:
 This project is built with the Flask micro web framework, which is written in Python.
 
+#Our Food Ontology:
+![image](https://user-images.githubusercontent.com/35718781/172491605-44986b47-b267-4a50-849a-f94314777b8b.png)
+
 #References:<br>
 ISO/IEC (2020), Information technology — Upper level ontology for smart city indicator (ISO/IEC 21972:2020). https://www.iso.org/standard/72325.html
 
