@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet">
+    <title>FSI</title>
+</head>
+<body>
+<center><h2 class="blue">Comparative Analysis Between Two Indicators</h2></center>
+<a href="/">Back to home</a>
+
+<fieldset>
+    <ul><h3>Given Indicator Names:</h3>
+        <p>The result showing below is for Value level comparison between two indicators:</p>
+        <li><i>{{ output.get('indicator1') }} </i> as ‘Indicator 1’</li>
+        <li><i>{{ output.get('indicator2') }} </i> as ‘Indicator 2’</li>
+    </ul>
+    <hr>
+    <fieldset>
+        <ul><h3>Comparison Category: (Value Restriction Wise)</h3>
+            <li><b style="color:red">Miss</b>-- The property of one of the indicators isn't present in the other.</li>
+            <li><b style="color:blue">Mismatch</b> -- The property values of both indicators are different.</li>
+            <li><b style="color:green">Match</b> -- Both indicators have the same properties in common.</li>
+        </ul>
+    </fieldset>
+    <hr>
+    <fieldset>
+        <ul><h3>Given Indicators Summary:</h3>
+            <ul><b>Indicator 1 Property Value set:</b>
+                {% for i in output.get('indicator1_property_value') %}
+
+                <li>{{ i}}</li>
+
+                {% endfor %}
+            </ul><br>
+            <ul><b>Indicator 2 Property Value set:</b>
+                {% for i in output.get('indicator2_property_value') %}
+                <li> {{ i}}</li>
+
+                {% endfor %}
+            </ul>
+        </ul>
+    </fieldset>
+    <hr>
+    <fieldset>
+        <ul><h3>Result Summary:(Value Restriction Matching)</h3>
+            <li><b>Found {{ output.get('matched_percentage') }}% <span style="color:green">Match</span> Between Two Given Indicators</b></li>
+            <li><b>Found {{ output.get('missed_percentage') }}% <span style="color:red">Miss</span> Between Two Given Indicators</b></li>
+            <li><b>Found {{ output.get('mismatched_percentage') }}% <span style="color:blue">Mismatch</span> Between Two Given Indicators</b></li>
+        </ul>
+    </fieldset>
+    <hr>
+    <fieldset>
+        <ul><h3>Result Details: (Value Restriction)</h3>
+            <b>Found ‘match’ in the following properties:</b>
+            {% if (output.get('match_property_value')|length)<=0 %}
+            <p style="color:red">No Value Found</p>
+
+            {% else%}
+            {% for i in output.get('match_property_value') %}
+            <ul>{{i}}
+                <li>Indicator 1: {{output.get('indicator1_matched_property_value').get(i)}}</li>
+                <li>Indicator 2: {{output.get('indicator2_matched_property_value').get(i)}}</li>
+            </ul>
+            <br>
+            {% endfor %}
+            {% endif%}
+        </ul>
+        <br>
+        <ul><b>Found ‘miss’ in the following properties:</b>
+            {% if (output.get('miss_property_value')|length)<=0 %}
+            <p style="color:red">No Value Found</p>
+
+            {% else%}
+            {% for i in output.get('miss_property_value') %}
+            <ul>{{i}}
+                <li>Indicator 1: {{output.get('indicator1_miss_property_value').get(i)}}</li>
+                <li>Indicator 2: {{output.get('indicator2_miss_property_value').get(i)}}</li>
+            </ul>
+            <br>
+            {% endfor %}
+            {% endif%}
+        </ul>
+        <br>
+        <ul><b>Found ‘mismatch’ in the following properties:</b>
+            {% if (output.get('mismatch_property_value')|length)<=0 %}
+            <p style="color:red">No Value Found</p>
+
+            {% else%}
+            {% for i in output.get('mismatch_property_value') %}
+            <ul>{{i}}
+                <li>Indicator 1: {{output.get('indicator1_mismatched_property_value').get(i)}}</li>
+                <li>Indicator 2: {{output.get('indicator2_mismatched_property_value').get(i)}}</li>
+            </ul>
+            <br>
+            {% endfor %}
+            {% endif%}
+        </ul>
+    </fieldset>
+</fieldset>
+</body>
+</html>

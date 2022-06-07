@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1" name="viewport">
+    <link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet">
+    <title>Comparative Analysis of Food Security Indicators Landing Page</title>
+    <style>
+.hide {
+        display: none;
+        }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+    window.onload=function(){
+    checked=document.querySelector('input[name="group"]:checked').value;
+    if (checked=='intra'){
+    show1()}
+    else{
+    show2()
+    }
+    console.log(checked)
+
+    }
+    function show1(){
+    document.getElementById('content').style.display ='block';
+    document.getElementById('div1').style.display ='block';
+    document.getElementById('div2').style.display = 'none';
+    }
+    function show2(){
+    document.getElementById('content').style.display ='block';
+    document.getElementById('div1').style.display ='none';
+    document.getElementById('div2').style.display = 'block';
+}
+
+
+    </script>
+</head>
+<body>
+<center><h2 class="blue">Comparative Analysis of Food Security Indicators</h2></center>
+<form action="/savefile" enctype="multipart/form-data" method="post">
+    {{ form.csrf_token }}
+    {{ form.hidden_tag() }}
+    <fieldset>
+        <legend for="radio">Choose one type for comparative analysis:</legend>
+        <div id="comparability_type">
+            {% if form.group.data=='inter' %}
+            <input name="group" onclick="show1();" type="radio" value="intra" >Intra-Comparability</input>
+            <input name="group" onclick="show2();" type="radio" value="inter" checked>Inter-Comparability</input>
+            {% else %}
+            <input name="group" onclick="show1();" type="radio" value="intra" checked>Intra-Comparability</input>
+            <input name="group" onclick="show2();" type="radio" value="inter" hidden></input>
+            {% endif %}
+        </div>
+    </fieldset>
+    <fieldset class="hide" id="content">
+        <div class="hide" id="div1">
+            <label for="file">Choose an ontology to upload (.owl): </label>
+            <input accept=".owl" id="owlfile" name="owlfile" type="file"/>
+            <button class="text-center" type="submit">Submit</button>
+            {% if form.owlfile.errors %}
+            <ul class="errors" style="color:#FF0000;list-style:none">
+                {% for error in form.owlfile.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div class="hide" id="div2">
+            <label for="file">Choose an ontology to upload (.owl): </label>
+            <input accept=".owl" id="owlfile1" name="owlfile1" type="file"/>
+            {% if form.owlfile1.errors %}
+            <ul class="errors" style="color:#FF0000;list-style:none">
+                {% for error in form.owlfile1.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <br>
+            <label for="file">Choose an ontology to upload (.owl): </label>
+            <input accept=".owl" id="owlfile2" name="owlfile2" type="file"/><br>
+
+            {% if form.owlfile2.errors %}
+            <ul class="errors" style="color:#FF0000;list-style:none">
+                {% for error in form.owlfile2.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <button class="text-center" type="submit">Submit</button>
+        </div>
+    </fieldset>
+</form>
+
+</body>
+</html>

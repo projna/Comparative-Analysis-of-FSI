@@ -1,0 +1,6 @@
+flask
+werkzeug
+flask_wtf
+owlready2
+shutup
+gunicorn

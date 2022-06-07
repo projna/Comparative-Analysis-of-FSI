@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet">
+    <title>Indicator Input</title>
+    <style>
+
+
+    </style>
+</head>
+<body>
+<center><h2 class="blue">Comparative Analysis of Food Security Indicators</h2></center>
+<form action="/result" enctype="multipart/form-data" method="post">
+    <a href="/">Back to home</a>
+    {{ form.csrf_token }}
+    {{ form.hidden_tag() }}
+    <fieldset>
+        <ul style="list-style:None"><h3>Enter indicators definitional class for comparative analysis</h3>
+            <li><label for="text" style="margin-right: 5%">Indicator 1</label>
+                <input name="indicator1" placeholder="Enter first indicator definition"
+                                                    type="text" class="indicator" style="width: 50%"/></li>
+            {% if form.indicator1.errors %}
+            <div class="errors" style="color:#FF0000;list-style:none">
+                {% for error in form.indicator1.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <li>
+                <label for="text" style="margin-right: 5%">Indicator 2</label>
+                <input name="indicator2" placeholder="Enter second indicator definition"
+                                                    type="text" class="indicator" style="width: 50%;"/></li>
+            {% if form.indicator2.errors %}
+            <div class="errors" style="color:#FF0000;list-style:none">
+                {% for error in form.indicator2.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+
+        </ul>
+        <ul id="category" style="list-style:None"><h3>Select one category for comparative analysis</h3>
+            <li><input name="group" type="radio" value="property">Property Wise</input></li>
+            <li><input name="group" type="radio" value="valueRestriction">Value Restriction Wise</input></li>
+<!--            <li><input name="group" type="radio" value="definitional">Definitional</input></li>-->
+        </ul>
+        {% if form.group.errors %}
+        <ul class="errors" style="color:#FF0000;list-style:none">
+            {% for error in form.group.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <button type="reset">Reset</button>
+        <button type="submit">Run</button>
+
+    </fieldset>
+</form>
+</body>
+</html>

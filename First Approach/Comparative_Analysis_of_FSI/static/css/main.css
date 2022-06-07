@@ -1,0 +1,29 @@
+<style>
+body{
+font-family: "Times New Roman", Times, serif;
+background: white;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+form{
+  padding-left: 20%;
+  padding-right: 20%;
+}
+button {
+  width: 15%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+ul{
+font-size: 1.2rem;
+}
+ul li{
+font-size: 1.1rem;
+list-style: none;
+}
+.blue{
+color: #0000FF;
+}
+</style>
