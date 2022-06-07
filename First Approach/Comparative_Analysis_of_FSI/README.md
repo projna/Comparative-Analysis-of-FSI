@@ -4,7 +4,7 @@ We attempted two approaches to conduct the comparative analysis. This is a first
 
 ### Architechture of Comparative Analysis
 <p float="left">
-  <img src="https://user-images.githubusercontent.com/35718781/172491387-a141861c-2d44-4ef2-b8bc-b66f93cb6927.png" width="300" />
+  <img src="https://user-images.githubusercontent.com/35718781/172491387-a141861c-2d44-4ef2-b8bc-b66f93cb6927.png" width="400" />
 </p>
 
 # Comparative Analysis Result
