@@ -4,10 +4,10 @@ World hunger refers to areas where human population does not have adequate food 
 
 The goal of this research is to develop an ontology-based method to comparatively analyze Canadian food security indicator definitions so that we can understand how similar they may be and what the sources of differences are. To achieve this goal, we developed an ontology for food security and an algorithm that used the food security ontology, combined with the ISO/IEC 21972 Indicator ontology (Fox, 2014; 2015; ISO/IEC, 2020), to compare the definitions of food security indicators. The algorithm extended the indicator consistency analysis work of Wang & Fox (2017) to identify differences based on causes other than consistency.
 
-#Language:
+## Language:
 This project is built with the Flask micro web framework, which is written in Python.
 
-#Our Food Ontology:
+# Our Food Ontology:
 ![image](https://user-images.githubusercontent.com/35718781/172491605-44986b47-b267-4a50-849a-f94314777b8b.png)
 
 # Comparative Analysis Result:
@@ -34,7 +34,7 @@ d. Time Equality
 <p float="left">
   <img src="https://user-images.githubusercontent.com/35718781/172500175-23a9591b-c669-4dd6-b8f6-8a1afa503052.png" width="500" />
 </p>
-#References:<br>
+# References:<br>
 ISO/IEC (2020), Information technology — Upper level ontology for smart city indicator (ISO/IEC 21972:2020). https://www.iso.org/standard/72325.html
 
 Wang, Y, and Fox, M.S. (2017). Consistency Analysis of City Indicator Data. in S. Geertman et al. (eds.), Planning Support Science for Smarter Urban Futures, Lecture Notes in Geoinformation and Cartography, 355-369. Springer.
